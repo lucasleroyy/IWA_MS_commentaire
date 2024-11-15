@@ -29,4 +29,8 @@ public class CommentService {
     public void deleteById(Integer id) {
         commentRepository.deleteById(id);
     }
+
+    public List<Comment> findByLocationId(Integer locationId) {
+        return commentRepository.findByLocationId(locationId);
+    }
 }

@@ -34,4 +34,8 @@ public class CommentController {
     public void deleteComment(@PathVariable Integer id) {
         commentService.deleteById(id);
     }
+    @GetMapping("/location/{locationId}")
+    public List<Comment> getCommentsByLocationId(@PathVariable Integer locationId) {
+        return commentService.findByLocationId(locationId);
+    }
 }
