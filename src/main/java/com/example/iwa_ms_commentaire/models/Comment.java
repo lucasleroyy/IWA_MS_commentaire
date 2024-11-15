@@ -10,7 +10,7 @@ public class Comment {
     private Integer commentId;
 
     private Integer userId;
-    private Integer locationId;
+    private Long locationId;
 
     @Column(columnDefinition = "TEXT")
     private String commentText;
@@ -35,11 +35,11 @@ public class Comment {
         this.userId = userId;
     }
 
-    public Integer getLocationId() {
+    public Long getLocationId() {
         return locationId;
     }
 
-    public void setLocationId(Integer locationId) {
+    public void setLocationId(Long locationId) {
         this.locationId = locationId;
     }
 
