@@ -71,4 +71,18 @@ public class CommentService {
     public List<Comment> findByLocationId(Integer locationId) {
         return commentRepository.findByLocationId(locationId);
     }
+
+    public Comment updateComment(Integer id, Comment updatedComment) {
+        Optional<Comment> existingComment = commentRepository.findById(id);
+        if (existingComment.isPresent()) {
+            Comment comment = existingComment.get();
+            comment.setCommentText(updatedComment.getCommentText());
+            comment.setRating(updatedComment.getRating());
+            comment.setLocationId(updatedComment.getLocationId());
+            comment.setUserId(updatedComment.getUserId());
+            return commentRepository.save(comment);
+        } else {
+            throw new IllegalArgumentException("Commentaire avec l'ID " + id + " non trouvé.");
+        }
+    }
 }
